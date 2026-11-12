@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"><link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <meta name="description" content="this is a web page of an interface of a chat for some dogs pictures and a simple booking, the web page is made with html and css">
+    <title>Chat App Ilustration</title>
+    <style>
+        body {
+    --purple-300: hsl(276, 100%, 81%);
+    --purple-600: hsl(276, 55%, 52%);
+    --gray-500: hsl(270, 7%, 64%);
+    --gray-300: hsl(206, 6%, 79%);
+    --purple-950: hsl(271, 36%, 24%);
+    --pink-500: hsl(293, 100%, 63%);
+    --purple-500: hsl(264, 100%, 61%);
+    --white: hsl(0, 100%, 100%);
+    --gray-100: hsl(270, 20%, 96%);
+    --pink-400: hsl(289, 100%, 72%);
+    --linear-gradient: linear-gradient(to bottom left, var(--pink-500), var(--purple-500) 65%);
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+body::before {
+    content: "";
+    background: linear-gradient(to bottom, var(--pink-500), var(--purple-500));
+    height: 70dvh;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    border-radius: 0 0 100% 0;
+    z-index: -1;
+}
+
+.app__UI {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 30px;
+    padding: .5rem;
+    margin-top: 5rem;
+    background-color: var(--white);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.06),
+        0 20px 45px rgba(0, 0, 0, .3);
+}
+
+.header__app-UI {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background: var(--linear-gradient);
+    border-radius: 25px 25px 7px 7px;
+    justify-content: space-between;
+    height: 60px;
+    padding-top: .7rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.app__UI::before {
+    content: "";
+    background-color: var(--white);
+    position: absolute;
+    width: 40%;
+    height: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    margin: 0;
+    border-radius: 0 0 14px 14px;
+}
+
+.main__header-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header__app-UI span {
+    color: var(--white);
+}
+
+.header__app-UI span:first-child {
+    transform: rotate(180deg);
+    font-size: 1.3rem;
+    margin-left: .5rem;
+}
+
+.main__header-wrapper img {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    margin-right: .5rem;
+}
+
+.app__avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .2rem;
+}
+
+.app__avatar h2{
+    color: var(--white);
+    font-size: .7rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.app__avatar p {
+    color: var(--purple-300);
+    margin: 0;
+    font-size: .6rem;
+}
+
+.header__app-UI span:last-child {
+    font-size: 1rem;
+    margin-right: .5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--gray-100);
+    box-shadow: 0 0px 1px var(--gray-5);
+    border-radius: 0 0 25px 25px;
+    padding: 1rem .5rem;
+}
+
+.first__text, .answer__two-msg {
+    display: flex;
+    flex-direction: column; 
+    gap: .6rem;
+    width: 100%;
+}
+
+.first__text-sam, .answer__two-msg {
+    font-size: .6rem;
+    color: var(--purple-600);
+    width: 65%;
+    background-color: #dddd;
+    padding: 0rem .5rem;
+    border-radius: 15px 15px 15px 0;
+}
+
+.answer__one {
+    color: var(--gray-500);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.answer__one .answer__one-imgs {
+    display: flex; 
+    flex-direction: row;
+    gap: .6rem;
+}
+
+.answer__one-imgs {
+    width: 70%;
+    display: flex;
+    align-self: flex-end;
+    justify-content: space-evenly;
+}
+
+.answer__one-imgs img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+}
+
+.answer__one-msg {
+    font-size: .6rem;
+    background-color: var(--white);
+    margin-top: .5rem;
+    border-radius: 15px 15px 0 15px;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    padding: 0rem .5rem;
+    box-shadow: 0 10px 7px #ddd
+}
+
+.answer__one-msg--short {
+    width: 35%
+}
+
+.answer__two {
+    display: flex; 
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.prices__per-ride {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--linear-gradient);
+    border-radius: 10px 10px 10px 0;
+    padding: .2rem .8rem;
+    width: 70%;
+}
+
+.prices__per-ride div {
+    display: flex; 
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.prices__per-ride div span {
+    color: var(--pink-400);
+    font-size: 1.1rem;
+    font-weight: 400
+}
+
+.prices__per-ride div p {
+    color: var(--white);
+    font-size: .6rem
+}
+
+.prices__per-ride h3 {
+    color: var(--white);
+    font-size: .7rem;
+    margin: 0;
+    padding: 0;
+}
+
+.msg__composer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: .5rem;
+}
+
+.msg__composer p {
+    font-size: .6rem;
+    color: var(--gray-500);
+}
+
+.msg__composer span {
+    color: var(--white);
+    background-color: var(--purple-950);
+    border-radius: 50%;
+    padding: .2rem;
+}
+
+.simple__booking {
+    text-align: center;
+    margin: 5rem 2rem;
+}
+
+.simple__booking h1 {
+    color: var(--purple-950);
+    font-weight: 500;
+    font-size: 2.3rem;
+}
+
+.simple__booking p {
+    color: var(--gray-500);
+    line-height: 1.7rem;
+}
+
+@media screen and (min-width: 476px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+    }
+
+    body::before {
+        height: 90dvh;
+        width: 37%;
+        border-radius: 0 0 100% 100%;
+        left: -7rem;
+    }
+
+    .app__UI {
+        max-width: 235px;
+        margin: 0;
+        height: 480px;
+        position: relative;
+        margin-right: 10%
+    }
+
+    .app__UI::before {
+        content: "";
+        background-color: var(--white);
+        position: absolute;
+        width: 50%;
+        height: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        margin: 0;
+        border-radius: 0 0 14px 14px;
+    }
+
+    .header__app-UI {
+        height: 55px;
+    }
+
+    .header__app-UI span:first-child {
+        font-size: .9rem;
+    }
+
+    .main__header-wrapper img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .app__avatar h2{
+        font-size: .6rem;
+    }
+
+    .app__avatar p {
+        color: var(--purple-300);
+        margin: 0;
+        font-size: .5rem;
+    }
+
+    .header__app-UI span:last-child {
+        font-size: .7rem;
+        margin-right: .5rem;
+    }
+
+    main {
+        gap: .5rem;
+        padding: .5rem;
+    }
+
+    .first__text-sam, .answer__two-msg {
+        font-size: .5rem;
+        width: 50%;
+        border-radius: 10px 10px 10px 0;
+    }
+
+
+    .answer__one .answer__one-imgs {
+        gap: .5rem;
+    }
+
+    .answer__one-imgs {
+        width: 65%;
+    }
+
+    .answer__one-imgs img {
+        width: 43px;
+        height: 43px;
+        border-radius: 30%;
+    }
+
+    .answer__one-msg {
+        font-size: .5rem;
+        border-radius: 10px 10px 0 10px;
+        width: 60%;
+    }
+
+    .answer__one-msg--short {
+        width: 30%;
+        padding-right: .2rem;
+    }
+
+    .prices__per-ride {
+        width: 60%;
+    }
+
+    .prices__per-ride div span {
+        font-size: .9rem;
+    }
+
+    .prices__per-ride div p {
+        font-size: .5rem
+    }
+
+    .msg__composer p {
+        font-size: .5rem;
+    }
+
+    .msg__composer span {
+        font-size: 1.2rem;
+    }
+
+    .simple__booking {
+        width: 450px;
+        text-align: start;
+        text-wrap: balance;
+        height: fit-content;
+        margin: 0
+    }
+    }
+    </style>
+</head>
+<body>
+    <section class="app__UI">
+        <div class="header__app-UI">
+            <div class="main__header-wrapper">
+                <span class="material-symbols-outlined">
+                    single_arrow
+                </span>
+                <img src=" avatar.jpg" alt="image of Samuel Green">
+                <div class="app__avatar">
+                    <h2>
+                        Samuel Green 
+                    </h2>
+                    <p>
+                        Available to Walk 
+                    </p>
+                </div>
+            </div>
+            <span class="material-symbols-outlined">
+                more_vert
+            </span>
+        </div>
+        <main>
+            <div class="first__text">
+                <div class="first__text-sam">
+                    <p>
+                        That sounds great. I’d be happy with that.
+                    </p>
+                </div>
+                <div class="first__text-sam">
+                    <p>
+                        Could you send over some pictures of your dog, please?
+                    </p>
+                </div>
+            </div>
+            <div class="answer__one">
+                <div class="answer__one-imgs">
+                    <img src=" dog-image-1.jpg" alt="Picture of the dog">
+                    <img src=" dog-image-2.jpg" alt="Picture of the dog">
+                    <img src=" dog-image-3.jpg" alt="Picture of the dog">
+                </div>
+                <div class="answer__one-msg">
+                    <p>
+                        Here are a few pictures. She’s a happy girl!
+                    </p>
+                </div>
+                <div class="answer__one-msg answer__one-msg--short">
+                    <p>
+                        Can you make it? 
+                    </p>
+                </div>
+            </div>
+            <div class="answer__two">
+                <div class="answer__two-msg">
+                    <p>
+                        She looks so happy! The time we discussed works. How long shall I take her out for?
+                    </p>
+                </div>
+                <div class="prices__per-ride">
+                    <div>
+                        <span class="material-symbols-outlined">
+                            radio_button_unchecked
+                        </span>
+                        <p>
+                            30 minute walk
+                        </p>
+                    </div>
+                    <h3>
+                        $29
+                    </h3>
+                </div>
+                <div class="prices__per-ride">
+                    <div>
+                        <span class="material-symbols-outlined">
+                            radio_button_unchecked
+                        </span>
+                        <p>
+                            1 hour walk
+                        </p>
+                    </div>
+                    <h3>
+                        $49
+                    </h3>
+                </div>
+            </div>
+            <div class="msg__composer">
+                <p>
+                    Type a message…
+                </p>
+                <span class="material-symbols-outlined">
+                    chevron_right
+                </span>
+            </div>
+        </main>
+    </section>
+        <section class="simple__booking">
+            <h1>
+                Simple booking
+            </h1>
+            <p>
+                Stay in touch with our dog walkers through the chat interface. This makes it easy to discuss arrangements and make bookings. Once the walk has been completed you can rate your walker and book again all through the chat.
+            </p>
+        </section>
+</body>
+</html>
